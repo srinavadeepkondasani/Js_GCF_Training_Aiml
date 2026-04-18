@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parul University - Student Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Lato', sans-serif;
+            background-image: url('parul.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(10, 25, 60, 0.75) 0%,
+                rgba(30, 60, 100, 0.55) 50%,
+                rgba(10, 25, 60, 0.75) 100%
+            );
+            z-index: 0;
+        }
+
+        
+
+        .card {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.10);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 20px;
+            padding: 48px 44px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow:
+                0 8px 32px rgba(0,0,0,0.45),
+                inset 0 1px 0 rgba(255,255,255,0.2);
+            animation: fadeSlideUp 0.7s ease both;
+        }
+
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo-line {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
+            justify-content: center;
+        }
+
+        .logo-line .divider {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(200,170,100,0.6), transparent);
+        }
+
+        .logo-icon {
+            font-size: 22px;
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #f0d98a;
+            letter-spacing: 0.06em;
+            text-align: center;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            cursor: default;
+            transition: color 0.3s, text-shadow 0.3s;
+            margin-bottom: 4px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: rgba(220,210,190,0.75);
+            font-size: 0.82rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-bottom: 36px;
+        }
+
+        .field-group {
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(240,217,138,0.85);
+            margin-bottom: 7px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 13px 16px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            color: #fff;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+            transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
+        }
+
+        input::placeholder {
+            color: rgba(255,255,255,0.35);
+        }
+
+        input:focus, select:focus {
+            background: rgba(255,255,255,0.16);
+            border-color: rgba(240,217,138,0.7);
+            box-shadow: 0 0 0 3px rgba(240,217,138,0.15);
+        }
+
+        select option {
+            background: #1a2a4a;
+            color: #fff;
+        }
+
+        .live-msg {
+            font-size: 0.75rem;
+            color: rgba(200,200,200,0.7);
+            margin-top: 5px;
+            min-height: 16px;
+            transition: color 0.2s;
+        }
+
+        .live-msg.error { color: #ff7777; }
+        .live-msg.success { color: #77dd99; }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            margin-top: 10px;
+            background: linear-gradient(135deg, #c9a227, #e8cc6a, #c9a227);
+            background-size: 200% auto;
+            border: none;
+            border-radius: 10px;
+            color: #1a2a4a;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: background-position 0.4s, transform 0.15s, box-shadow 0.3s;
+            box-shadow: 0 4px 18px rgba(200,160,30,0.35);
+        }
+
+        .submit-btn:hover {
+            background-position: right center;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 26px rgba(200,160,30,0.5);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        
+    </style>
+</head>
+<body onload="pageLoaded()">
+
+<div class="overlay"></div>
+
+<div class="card">
+
+    <div class="logo-line">
+        <div class="divider"></div>
+        <span class="logo-icon">🎓</span>
+        <div class="divider"></div>
+    </div>
+
+    <h2 onmouseover="hoverTitle(this)" onmouseout="normalTitle(this)">
+        Parul University
+    </h2>
+    <p class="subtitle">Student Registration Portal</p>
+
+    <form onsubmit="return validateForm()">
+
+        <!-- Name -->
+        <div class="field-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your full name"
+                   onfocus="focusField(this)"
+                   onblur="blurField(this)"
+                   onkeyup="showLength(this)">
+            <div class="live-msg" id="msg"></div>
+        </div>
+
+        <!-- Age -->
+        <div class="field-group">
+            <label for="age">Age</label>
+            <input type="text" id="age" placeholder="Enter your age"
+                   onkeypress="allowOnlyNumbers(event)"
+                   onkeyup="liveAgeCheck(this)">
+            <div class="live-msg" id="age-msg"></div>
+        </div>
+
+        <!-- Country -->
+        <div class="field-group">
+            <label for="country">Country</label>
+            <select id="country" onchange="countryChanged(this)">
+                <option value="">Select Country</option>
+                <option value="India">India</option>
+                <option value="USA">USA</option>
+            </select>
+        </div>
+
+        <button type="submit" class="submit-btn" onclick="buttonClick()">
+            Submit Registration
+        </button>
+
+    </form>
+<script>
+function pageLoaded(){
+    alert("✅ Parul University Portal Loaded Successfully!");
+}
+
+function focusField(el){
+    el.style.background = "rgba(240,217,138,0.12)";
+}
+
+function blurField(el){
+    el.style.background = "rgba(255,255,255,0.08)";
+}
+
+function showLength(el){
+    const msg = document.getElementById("msg");
+    const len = el.value.length;
+    if(len === 0){
+        msg.textContent = "";
+        msg.className = "live-msg";
+    } else {
+        msg.textContent = "Character count: " + len;
+        msg.className = "live-msg " + (len >= 3 ? "success" : "error");
+    }
+}
+
+function allowOnlyNumbers(e){
+    if(e.key < '0' || e.key > '9'){
+        e.preventDefault();
+    }
+}
+
+function liveAgeCheck(el){
+    const msg = document.getElementById("age-msg");
+    const val = el.value;
+    if(val === ""){
+        msg.textContent = "";
+        msg.className = "live-msg";
+        el.style.borderColor = "rgba(255,255,255,0.2)";
+    } else if(isNaN(val) || parseInt(val) < 1 || parseInt(val) > 120){
+        el.style.borderColor = "#ff7777";
+        msg.textContent = "Please enter a valid age (1–120)";
+        msg.className = "live-msg error";
+    } else {
+        el.style.borderColor = "#77dd99";
+        msg.textContent = "Age looks good ✓";
+        msg.className = "live-msg success";
+    }
+}
+
+function countryChanged(el){
+    if(el.value) alert("🌍 Country selected: " + el.value);
+}
+
+function buttonClick(){
+    console.log("Submit button clicked");
+}
+
+function hoverTitle(el){
+    el.style.color = "#fff";
+    el.style.textShadow = "0 0 20px rgba(240,217,138,0.8)";
+}
+
+function normalTitle(el){
+    el.style.color = "#f0d98a";
+    el.style.textShadow = "0 2px 8px rgba(0,0,0,0.5)";
+}
+
+function validateForm(){
+    const name = document.getElementById("name").value.trim();
+    const age = document.getElementById("age").value;
+    const country = document.getElementById("country").value;
+
+    if(name === ""){
+        alert("⚠️ Please enter your name.");
+        return false;
+    }
+    if(name.length < 3){
+        alert("⚠️ Name must be at least 3 characters.");
+        return false;
+    }
+    if(age === "" || isNaN(age) || parseInt(age) < 1 || parseInt(age) > 120){
+        alert("⚠️ Please enter a valid age.");
+        return false;
+    }
+    if(country === ""){
+        alert("⚠️ Please select your country.");
+        return false;
+    }
+
+    alert("🎉 Registration Submitted Successfully!\n\nName: " + name + "\nAge: " + age + "\nCountry: " + country);
+    return true;
+}
+</script>
+</body>
+</html>

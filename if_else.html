@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var email=window.prompt("Enter the email:")
+        var p1=window.prompt('Enter the password:')
+        if(email=="rahul@gmail.com" && p1=="I_12345")
+        {
+            window.alert(email+p1+":Login successfully")
+            document.write("Login successfully")
+        }
+        else if(email=="rohan@gmail.com" && p1=="R_12345")
+        {
+            window.alert(email+p1+":Login successfully")
+            document.write("Login successfully")
+        }
+        else if(email=="ritesh@gmail.com")
+        {
+            window.alert(email+p1+":Enter the valid password")
+            document.write("Enter the valid password")
+        }
+         else if(p1=="I_12345" || p1=="R_12345")
+        {
+            window.alert(email+p1+":Enter the valid email")
+            document.write("Enter the valid email")
+        }
+        {
+            window.alert(email+p1+":Enter the valid details")
+            document.write("Enter the valid details")
+        }
+        
+
+    </script>
+</body>
+</html>

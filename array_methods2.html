@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         var Product_Info=[1001,"Mobile",29000,"Samsung"]
+        document.write("Product_Details are:"+Product_Info)
+        document.write("<br>")
+        document.write("The length of array is:"+Product_Info.length)
+        document.write("<br>")
+        document.write("1 element added in last position:"+Product_Info.push("Avengers"))
+    document.write("<br>")
+    document.write("Product_Details are:"+Product_Info)
+    document.write("<br>")
+         document.write("1 element added in last position:"+Product_Info.pop())
+    document.write("<br>")
+    document.write("Product_Details are:"+Product_Info)
+        document.write("<br>")
+        document.write("1 element added in last position:"+Product_Info.unshift("Vadodara"))
+        document.write("<br>")
+        document.write("Product_Details are:"+Product_Info)
+        document.write("1 element added in last position:"+Product_Info.shift())
+        document.write("<br>")
+        document.write("Product_Details are:"+Product_Info)
+        document.write("<br>")
+        document.write("The length of the array is:"+Product_Info.indexOf("Mobile"))
+        document.write("<br>")
+        document.write("The length of the array is:"+Product_Info.indexOf("PARUL UNIVERSITY"))
+        document.write("<br>")
+
+        window.alert("Product_Details:"+Product_Info)
+        document.write("<br>")
+        document.write("Data type is:"+typeof(Product_Info))
+        document.write("<br>")
+        document.write("Product_Name is:"+Product_Info[1])
+        document.write("<br>")
+        Product_Info[1]="Laptop"
+        document.write("Product_Name is:"+Product_Info[1])
+        document.write("<br>")
+        document.write("Product_Id is:"+Product_Info)
+        Product_Info[4]="TV"
+        document.write("<br>")
+        document.write("Product_Details are:"+Product_Info[4])
+        document.write("<br>")
+        document.write("Product_Details are:"+Product_Info)
+        document.write("Product_Price is:"+Product_Info[2])
+        document.write("<br>")
+        document.write("Product_Brand is:"+Product_Info[3])
+        document.write("<br>"+"Product Details are : "+product_info)
+        product_info.shift("Mumbai")
+        document.write("<br>"+"Product Details are : "+product_info)
+        document.write("<br>"+product_info.unshift("Parul University"))
+        document.write("<br>"+product_info)
+        document.write("<br>"+product_info.splice(2,2))
+        document.write("<br>"+product_info)
+
+
+    </script>
+</body>
+</html>
